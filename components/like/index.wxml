@@ -1,2 +1,1 @@
-<!--components/like/index.wxml-->
-<text>components/like/index.wxml</text>
+<image src="./images/like.png" class="container"></image>

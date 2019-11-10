@@ -2,5 +2,10 @@
   "pages": [
     "pages/classic/classic"
   ],
-  "sitemapLocation": "sitemap73.json"
+  "sitemapLocation": "sitemap73.json",
+  "window": {
+    "navigationBarBackgroundColor": "white",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "旧岛"
+  }
 }
