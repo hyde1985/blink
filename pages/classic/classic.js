@@ -5,19 +5,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    test: 1
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+      console.log(this.data.test)
       wx.request({
           url: 'http://bl.7yue.pro/v1/classic/latest',
           header: {
               appkey: "E2yHh2ti0YwDECiV"
           },
-          success: function(res) {
+          success: (res) => {
+              // 使用箭头函数，数this指代不变
+              console.log(this.data.test)
               console.log(res.data)
           }
       })
