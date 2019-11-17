@@ -26,7 +26,16 @@ Component({
    */
   methods: {
     onLikeTap: function(event) {
-      console.log(event)
+      // 获取like和count的值
+      let like = this.properties.like
+      let count = this.properties.count
+      // 如果like为真，点击之后则为假，所以此时count - 1
+      count = like ? count - 1 : count + 1
+      // 数据绑定
+      this.setData({
+        like: !like,
+        count: count
+      })
     }
   }
 })
