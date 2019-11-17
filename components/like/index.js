@@ -4,15 +4,19 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    like: {
+      type: Boolean,
+      value: false
+    },
+    count: {
+      type: Number
+    }
   },
 
   /**
    * 组件的初始数据
    */
   data: {
-    like: true,
-    count: 99,
     yesSrc: './images/like.png',
     noSrc: './images/like@dis.png'
   },
