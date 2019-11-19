@@ -1,5 +1,22 @@
 import {config} from "../config";
 
+const tips = {
+    1: '服务器错误',
+    1000: '输入参数错误',
+    1001: '输入的json格式错误' ,
+    1002: '找不到资源',
+    1003: '未知错误',
+    1004: '禁止访问',
+    1005: '错误开发者key',
+    1006: '服务器内部错误',
+    400: '请求包含不支持的参数',
+    401: '未授权',
+    403: '被禁止访问',
+    404: '请求的资源不存在',
+    413: '上传文件的体积太大',
+    500: '内部错误'
+}
+
 class HTTP {
 
     request(params) {
@@ -21,13 +38,25 @@ class HTTP {
                 if(code.startsWith('2')) {
                     params.success(res.data)
                 } else {
-
+                    this.__show_error(res.data.error_code)
                 }
             },
             fail: (err) => {
-
+                this.__show_error(1)
             }
         })
+    }
+
+    __show_error(error_code) {
+        //如果error_code为空，默认=1
+        if(!error_code) {
+            error_code = 1
+        } else {
+            wx.showToast({
+                title: tips[error_code],
+                duration: 2000
+            })
+        }
     }
 }
 
