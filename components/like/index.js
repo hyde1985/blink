@@ -25,7 +25,7 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    onLikeTap: function(event) {
+    onLike: function(event) {
       // 获取like和count的值
       let like = this.properties.like
       let count = this.properties.count
@@ -36,6 +36,10 @@ Component({
         like: !like,
         count: count
       })
+      let behavior = this.properties.like ? "like" : "cancel"
+      this.triggerEvent("like", {
+        behavior: behavior
+      }, {})
     }
   }
 })
