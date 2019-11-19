@@ -19,7 +19,7 @@ class HTTP {
                 // 判断状态码，如果2xx，则。。。。。
                 let code = res.statusCode.toString()
                 if(code.startsWith('2')) {
-                    params.success(res)
+                    params.success(res.data)
                 } else {
 
                 }
