@@ -17,9 +17,9 @@ class HTTP {
             },
             success: (res) => {
                 // 判断状态码，如果2xx，则。。。。。
-                let code = res.statusCode
+                let code = res.statusCode.toString()
                 if(code.startsWith('2')) {
-
+                    params.success(res)
                 } else {
 
                 }
@@ -31,6 +31,4 @@ class HTTP {
     }
 }
 
-export {
-    HTTP
-}
+export {HTTP}
