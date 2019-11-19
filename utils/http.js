@@ -38,22 +38,23 @@ class HTTP {
                 if(code.startsWith('2')) {
                     params.success(res.data)
                 } else {
-                    this.__show_error(res.data.error_code)
+                    this._show_error(res.data.error_code)
                 }
             },
             fail: (err) => {
-                this.__show_error(1)
+                this._show_error(1)
             }
         })
     }
 
-    __show_error(error_code) {
+    _show_error(error_code) {
         //如果error_code为空，默认=1
         if(!error_code) {
             error_code = 1
         } else {
             wx.showToast({
                 title: tips[error_code],
+                icon: none,
                 duration: 2000
             })
         }
