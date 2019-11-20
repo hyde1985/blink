@@ -1,10 +1,11 @@
 // pages/classic/classic.js
 import {HTTP} from "../../utils/http";
 import {ClassicModel} from "../../models/classic";
+import {LikeModel} from "../../models/like";
 
 let http = new HTTP()
 let classicModel = new ClassicModel()
-
+let likeModel = new LikeModel()
 
 Page({
 
@@ -28,7 +29,10 @@ Page({
   },
 
   onLike: function(event) {
-    console.log(event)
+    let behavior = event.detail.behavior
+    let art_id = this.data.classic.id
+    let category = this.data.classic.type
+    likeModel.like(behavior, art_id, category)
   },
 
   /**

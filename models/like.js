@@ -12,7 +12,7 @@ class LikeModel extends HTTP {
         }
         // 发送请求
         this.request({
-            url: config.api_base_url + url,
+            url: url,
             method: 'POST',
             data: {
                 art_id: art_id,
@@ -21,3 +21,5 @@ class LikeModel extends HTTP {
         })
     }
 }
+
+export {LikeModel}

@@ -36,10 +36,14 @@ Component({
         like: !like,
         count: count
       })
+      // 自定义事件，将状态传递到外面
       let behavior = this.properties.like ? "like" : "cancel"
-      this.triggerEvent("like", {
-        behavior: behavior
-      }, {})
+      this.triggerEvent(
+          "like",
+          {
+            behavior: behavior
+          },
+          {})
     }
   }
 })
