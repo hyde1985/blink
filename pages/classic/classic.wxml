@@ -4,3 +4,5 @@
 </view>
 
 <v-movie img="{{classic.image}}" content="{{classic.content}}"></v-movie>
+
+<v-navi title="{{classic.title}}"></v-navi>
