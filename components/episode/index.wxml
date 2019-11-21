@@ -1,0 +1,6 @@
+<view class="container">
+    <text>NO.{{num}}</text>
+    <text>|</text>
+    <text>{{month}}月</text>
+    <text>{{year}}</text>
+</view>
