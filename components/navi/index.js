@@ -10,11 +10,11 @@ Component({
     },
     // 是否是最新的一条，如果是的话，左箭头图片显示dis那张
     latest: {
-      type: Boolean
+      type: Boolean,
     },
     // 是否是第一条，如果是的话，右箭头图片显示dis那张
     first: {
-      type: Boolean
+      type: Boolean,
     }
   },
 

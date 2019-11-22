@@ -13,7 +13,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    classic: null
+    classic: null,
+    latest: true,
+    first: false
   },
 
   /**
