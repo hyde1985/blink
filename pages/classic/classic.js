@@ -42,7 +42,12 @@ Page({
   },
 
   "onPrevious": function(event) {
-    console.log('onPrevious')
+    let index = this.data.classic.index
+    classicModel.getPrevious(index, (res) => {
+      this.setData({
+        classic: res
+      })
+    })
   },
 
   /**
