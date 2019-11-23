@@ -32,6 +32,16 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    "onLeft": function (event) {
+      // 如果latest = true, 则禁用事件
+      if(!this.properties.latest) {
+        this.triggerEvent('left', {}, {})
+      }
+    },
+    "onRight": function (event) {
+      if(!this.properties.first) {
+        this.triggerEvent('right', {}, {})
+      }
+    }
   }
 })

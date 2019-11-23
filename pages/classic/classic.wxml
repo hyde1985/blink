@@ -6,6 +6,6 @@
 
     <v-movie img="{{classic.image}}" content="{{classic.content}}"></v-movie>
 
-    <v-navi class="navi" title="{{classic.title}}" first="{{first}}" latest="{{latest}}"></v-navi>
+    <v-navi class="navi" title="{{classic.title}}" first="{{first}}" latest="{{latest}}" bind:left="onNext" bind:right="onPrevious"></v-navi>
 </view>
 

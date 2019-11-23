@@ -37,6 +37,14 @@ Page({
     likeModel.like(behavior, art_id, category)
   },
 
+  "onNext": function(event) {
+    console.log('onNext')
+  },
+
+  "onPrevious": function(event) {
+    console.log('onPrevious')
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
