@@ -19,6 +19,14 @@ class ClassicModel extends HTTP {
             }
         })
     }
+
+    isFirst(index) {
+        return index == 1 ? true : false
+    }
+
+    isLatest(index) {
+        
+    }
 }
 
 export {ClassicModel}
