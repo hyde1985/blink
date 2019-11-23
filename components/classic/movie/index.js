@@ -1,15 +1,12 @@
-// components/classic/movie/index.js
+import {classBehavior} from "../classic-beh";
+
 Component({
   /**
    * 组件的属性列表
    */
+  behaviors: [classBehavior],
+
   properties: {
-    img: {
-      type: String
-    },
-    content: {
-      type: String
-    }
   },
 
   /**

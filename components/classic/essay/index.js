@@ -1,4 +1,4 @@
-// components/classic/music/index.js
+// components/classic/essay/index.js
 import {classBehavior} from "../classic-beh";
 
 Component({
@@ -8,6 +8,7 @@ Component({
   behaviors: [classBehavior],
 
   properties: {
+
   },
 
   /**
