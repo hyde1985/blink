@@ -13,6 +13,7 @@ class ClassicModel extends HTTP {
         })
     }
 
+    /*
     getPrevious(index, sCallback) {
         this.request({
             url: 'classic/' + index + '/previous',
@@ -20,7 +21,7 @@ class ClassicModel extends HTTP {
                 sCallback(res)
             }
         })
-    }
+    }*/
 
     getClassic(index, nextOrPrevious, sCallback) {
         let suffix = ''
