@@ -38,18 +38,20 @@ Page({
   },
 
   "onNext": function(event) {
-    console.log('onNext')
+    this._updateClassic('next')
   },
 
   "onPrevious": function(event) {
-    // 当前文章的index
+    this._updateClassic('previous')
+  },
+
+  _updateClassic(nextOrPrevious) {
     let index = this.data.classic.index
-    classicModel.getPrevious(index, (res) => {
+    classicModel.getClassic(index, nextOrPrevious, (res) => {
       this.setData({
-        // 设置返回文章的序号到first, latest
         classic: res,
         first: classicModel.isFirst(res.index),
-        latest: classicModel.isLast(res.index),
+        latest: classicModel.isLast(res.index)
       })
     })
   },

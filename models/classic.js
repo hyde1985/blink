@@ -22,9 +22,28 @@ class ClassicModel extends HTTP {
         })
     }
 
+    getClassic(index, nextOrPrevious, sCallback) {
+        let suffix = ''
+        if(nextOrPrevious == 'previous') {
+            suffix = '/previous'
+        } else {
+            suffix = '/next'
+        }
+        this.request({
+            url: 'classic/' + index + suffix,
+            success: (res) => {
+                sCallback(res)
+            }
+        })
+    }
+
     isFirst(index) {
         // 最后一期只要判断index是否为1
         return index == 1 ? true : false
+    }
+
+    isLast(index) {
+        return index == this._getLastIndex() ? true : false
     }
 
     _setLastIndex(index) {
@@ -38,9 +57,7 @@ class ClassicModel extends HTTP {
         return lastIndex
     }
 
-    isLast(index) {
-        return index == this._getLastIndex() ? true : false
-    }
+
 }
 
 export {ClassicModel}
