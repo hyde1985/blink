@@ -15,7 +15,8 @@ Page({
   data: {
     classic: null,
     latest: true,
-    first: false
+    first: false,
+    temp: null
   },
 
   /**
@@ -23,7 +24,6 @@ Page({
    */
   onLoad: function (options) {
     classicModel.getLatest((res) => {
-        console.log(res)
         this.setData({
             classic: res
         })
@@ -42,10 +42,14 @@ Page({
   },
 
   "onPrevious": function(event) {
+    // 当前文章的index
     let index = this.data.classic.index
     classicModel.getPrevious(index, (res) => {
       this.setData({
-        classic: res
+        // 设置返回文章的序号到first, latest
+        classic: res,
+        first: classicModel.isFirst(res.index),
+        latest: classicModel.isLast(res.index),
       })
     })
   },
