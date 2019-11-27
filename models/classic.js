@@ -9,33 +9,33 @@ class ClassicModel extends HTTP {
                 sCallback(res)
                 // 将最新一期的期刊号设置到缓存中
                 this._setLastIndex(res.index)
+                wx.setStorageSync(this._getStorageIndex(res.index), res)
             }
         })
     }
 
-    /*
-    getPrevious(index, sCallback) {
-        this.request({
-            url: 'classic/' + index + '/previous',
-            success: (res) => {
-                sCallback(res)
-            }
-        })
-    }*/
-
     getClassic(index, nextOrPrevious, sCallback) {
         let suffix = ''
+        let storageIndex = ''
         if(nextOrPrevious == 'previous') {
             suffix = '/previous'
+            storageIndex = this._getStorageIndex(index - 1)
         } else {
             suffix = '/next'
+            storageIndex = this._getStorageIndex(index + 1)
         }
-        this.request({
-            url: 'classic/' + index + suffix,
-            success: (res) => {
-                sCallback(res)
-            }
-        })
+        let classic = wx.getStorageSync(storageIndex)
+        if(classic) {
+            sCallback(classic)
+        } else {
+            this.request({
+                url: 'classic/' + index + suffix,
+                success: (res) => {
+                    sCallback(res)
+                    wx.setStorageSync(this._getStorageIndex(res.index), res)
+                }
+            })
+        }
     }
 
     isFirst(index) {
@@ -58,6 +58,9 @@ class ClassicModel extends HTTP {
         return lastIndex
     }
 
+    _getStorageIndex(index) {
+        return "classic-" + index
+    }
 
 }
 
