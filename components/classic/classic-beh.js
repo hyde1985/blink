@@ -5,6 +5,9 @@ let classBehavior = Behavior({
         },
         content: {
             type: String
+        },
+        hidden: {
+            type: Boolean
         }
     }
 })
