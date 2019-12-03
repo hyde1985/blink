@@ -8,6 +8,9 @@ Component({
   behaviors: [classBehavior],
 
   properties: {
+    src: {
+      type: String
+    }
   },
 
   /**
@@ -15,6 +18,7 @@ Component({
    */
   data: {
     playSrc: "./images/player@play.png",
+    pauseSrc: "./images/player@pause.png"
   },
 
   /**
