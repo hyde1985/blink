@@ -7,8 +7,8 @@ Component({
   /**
    * 组件的属性列表
    */
-  detached: function() {
-    musicMgr.stop()
+  attached: function() {
+    this._recoverStatus()
   },
 
   behaviors: [classBehavior],
@@ -47,6 +47,18 @@ Component({
           })
         musicMgr.title = this.properties.title
         musicMgr.src = this.properties.src
+      }
+    },
+
+    _recoverStatus: function() {
+      if (musicMgr.paused) {
+        this.setData({
+          isPlaying: false
+        })
+      } else if (musicMgr.src == this.properties.src){
+        this.setData({
+          isPlaying: true
+        })
       }
     }
   }
