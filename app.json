@@ -3,6 +3,7 @@
     "pages/classic/classic"
   ],
   "sitemapLocation": "sitemap73.json",
+  "requiredBackgroundModes": ["audio"],
   "window": {
     "navigationBarBackgroundColor": "white",
     "navigationBarTextStyle": "black",
