@@ -3,12 +3,15 @@ import {classBehavior} from "../classic-beh";
 
 const musicMgr = wx.getBackgroundAudioManager()
 
+
+
 Component({
   /**
    * 组件的属性列表
    */
   attached: function() {
     this._recoverStatus()
+    this._monitorStatus()
   },
 
   behaviors: [classBehavior],
@@ -60,6 +63,21 @@ Component({
           isPlaying: true
         })
       }
+    },
+
+    _monitorStatus: function() {
+      musicMgr.onPause(() => {
+        this._recoverStatus()
+      })
+      musicMgr.onPlay(() => {
+        this._recoverStatus()
+      })
+      musicMgr.onStop(() => {
+        this._recoverStatus()
+      })
+      musicMgr.onEnded(() => {
+        this._recoverStatus()
+      })
     }
-  }
+  },
 })
